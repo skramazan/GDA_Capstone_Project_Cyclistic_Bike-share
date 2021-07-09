@@ -1,0 +1,8 @@
+01. Original Dataset (divvy-tripdata 2020-06 to 2021-05)
+https://divvy-tripdata.s3.amazonaws.com/index.html
+
+02. Combined Dataset
+
+03. Sample from Combined Dataset
+
+04. Cleaned Dataset
