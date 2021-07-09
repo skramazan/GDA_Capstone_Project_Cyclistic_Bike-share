@@ -1,4 +1,4 @@
-# **Cyclistic: Case Study**
+# **Cyclistic Bike-Share: Case Study**
 
 _This document is created as part of the capstone project of the Google Data Analytics Professional Certificate._
 
@@ -10,11 +10,11 @@ In 2016, Cyclistic launched a successful bike-share offering. Since then, the pr
 
 The project follows the six step data analysis process: **ask, prepare, process, analyze, share, and act**.
 
-## **Phase 1: Ask**
+## **PHASE 1: Ask** 
 Three questions will guide the future marketing program:
  1. How do annual members and casual riders use Cyclistic bikes
     differently? 
- 2. Why would casual riders buy Cyclistic annual memberships?
+ 2. why would casual riders buy Cyclistic annual memberships?
  3. How can Cyclistic use digital media to influence casual
         riders to become members?
         
@@ -52,6 +52,7 @@ ROCCC approach is used to determine the credibility of the data
 A quick filtering and checking data for completeness shows that “start station name and ID” and “end station name and ID” for some rides are missing. Further observations suggest that the most missing data about “start station name” belongs to “electric bikes” as 201,975 out of 888,490 electric ride shares have missing data and it accounts for 22% of total electric-bike ride shares.
 
 This limitation could slightly affect our analysis for finding stations where most electric-bikes are taken but we can use “end station names” to locate our customers and this can be used for further analysis and potential marketing campaigns.
+<![endif]-->
 
 ## **PHASE 3: Process**
 
@@ -116,6 +117,35 @@ Before we start analyzing, it is necessary to make sure data is clean, free of e
 	    clean_names() %>%    
 	    unique()
     # Export cleaned df to a new csv 
-    >write_csv(df,"2020-2021_divvy-tripdata_cleaned.csv")
+    write_csv(df,"2020-2021_divvy-tripdata_cleaned.csv")
 
 ## PHASE 4: Analyzing Data
+Performed data aggregation using R Programming.
+- Click [here](https://github.com/skramazan/GDA_Capstone_Project_Cyclistic_Bike-share/blob/main/02.%20Analysis/analysis_script.R) to view the R script and the summary of complete analysis process.
+
+Further analysis were carried out to perform calculations, identify trends and relationships using PivotTable and Charts on Microsoft Excel.
+
+ - Click [here](https://github.com/skramazan/GDA_Capstone_Project_Cyclistic_Bike-share/tree/main/02.%20Analysis) to view individual Excel files used for analysis
+
+## PHASE 5: Share
+Microsoft PowerPoint is used for data visualization and presenting key insights.
+- Click [here](https://github.com/skramazan/GDA_Capstone_Project_Cyclistic_Bike-share/tree/main/03.%20Presentation) to download the presentation.
+
+## PHASE 6: Act
+After analizing, we reached to the following conclusion:
+- Casual riders take less number of rides but for longer durations.
+- Casual Riders are most active on weekends, and the months of June and July.
+- Casual riders mostly use bikes for recreational purposes.
+
+Here are my top 3 recommendations based on above key findings:
+1. Design riding packages by keeping recreational activities, weekend contests, and summer events in mind and offer special discounts and coupons on such events to encourage casual riders get annual membership.
+
+2. Design seasonal packages, It allows flexibility and encourages casual riders to get membership for specific periods if they are not willing to pay for annual subscription.
+
+3. Effective and efficient promotions by targeting casual riders at the busiest times and stations:
+	- Days: Weekends
+	- Months: February, June, and July
+	- Stations: Streeter Dr & Grand Ave, Lake Shore Dr & Monroe St, Millennium Park
+
+
+***Thanks for reading and Happy Analyzing!*** :smiley: :bar_chart:
