@@ -14,7 +14,7 @@ The project follows the six step data analysis process: **ask, prepare, process,
 Three questions will guide the future marketing program:
  1. How do annual members and casual riders use Cyclistic bikes
     differently? 
- 2. why would casual riders buy Cyclistic annual memberships?
+ 2. Why would casual riders buy Cyclistic annual memberships?
  3. How can Cyclistic use digital media to influence casual
         riders to become members?
         
@@ -52,7 +52,6 @@ ROCCC approach is used to determine the credibility of the data
 A quick filtering and checking data for completeness shows that “start station name and ID” and “end station name and ID” for some rides are missing. Further observations suggest that the most missing data about “start station name” belongs to “electric bikes” as 201,975 out of 888,490 electric ride shares have missing data and it accounts for 22% of total electric-bike ride shares.
 
 This limitation could slightly affect our analysis for finding stations where most electric-bikes are taken but we can use “end station names” to locate our customers and this can be used for further analysis and potential marketing campaigns.
-<![endif]-->
 
 ## **PHASE 3: Process**
 
@@ -117,6 +116,6 @@ Before we start analyzing, it is necessary to make sure data is clean, free of e
 	    clean_names() %>%    
 	    unique()
     # Export cleaned df to a new csv 
-    write_csv(df,"2020-2021_divvy-tripdata_cleaned.csv")
+    >write_csv(df,"2020-2021_divvy-tripdata_cleaned.csv")
 
 ## PHASE 4: Analyzing Data
