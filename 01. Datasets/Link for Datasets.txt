@@ -2,7 +2,10 @@
 https://divvy-tripdata.s3.amazonaws.com/index.html
 
 02. Combined Dataset
+https://drive.google.com/file/d/1aUaVpA0HG1IAb38RyvCYAEmaNbfJfRfq/view?usp=sharing
 
 03. Sample from Combined Dataset
+https://drive.google.com/file/d/1aVW8t5_rvTih9-q3nkO8xOJY6i-CNYB3/view?usp=sharing
 
 04. Cleaned Dataset
+https://drive.google.com/file/d/1aVwol-dLweV_0l_qOl5pVgwArANAqkg7/view?usp=sharing
