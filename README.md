@@ -35,7 +35,7 @@ Secondary stakeholders: Cyclistic marketing analytics team
 
 ## **PHASE 2: Data Preparation**
 
-The data that we will be using is Cyclistic’s historical trip data from last 12 months (May-2020 to Apr-2021). The data has been made available by Motivate International Inc. on this [link](https://divvy-tripdata.s3.amazonaws.com/index.html) under this [license](https://www.divvybikes.com/data-license-agreement).
+The data that we will be using is Cyclistic’s historical trip data from last 12 months (Oct-2021 to Sept-2022). The data has been made available by Motivate International Inc. on this [link](https://divvy-tripdata.s3.amazonaws.com/index.html) under this [license](https://www.divvybikes.com/data-license-agreement).
 
 The dataset consists of 12 CSV files (each for a month) with 13 columns and more than 4 million rows.
 
@@ -62,29 +62,28 @@ Before we start analyzing, it is necessary to make sure data is clean, free of e
  **1. Tools:** R Programming is used for its ability to handle huge datasets efficiently. Microsoft Excel is used for further analysis and visualization. 
 
 	># Load packages in R
-	>library(readr)
 	>library(tidyverse)
-	>library(dplyr)
-	>library(lubridate)
-	>library(skimr)
 	>library(janitor)
+	>library(lubridate)
+	>library(readr)
+	>library(dplyr)
+	>library(skimr)
+	>library(ggplot2)
 
 **2. Organize**: Combined all 12 datasets into one.
 
 	># Add files to the list and combine all 12 files into a single csv file  	
 	>files <- dir("CSV/", full.names = T)  	
-	>combined <- map_df(files, read_csv, col_types = cols(start_station_id =col_character(), end_station_id = col_character())) 
-	>write_csv(combined, "combined_datasets.csv")
+	bike_rides <-rbind(df1,df2,df3,df4,df5,df6,df7,df8,df9,df10,df11,df12)
+
 
 **3. Sampling**: Due to limitation in computational power and efficiency purposes, I had to take a random sample without replacement out of 4,073,561 observations. Sample size is calculated as follow:
- - Population size: 4,073,561
+ - Population size: 5,828,235
  - Confidence level: 99.99%
  - Margin of Error: 0.2
- - Sample size: 767,554
+ - Sample size: 606,149
 
-       >df <-read_csv("combined_datasets.csv",col_types=cols(start_station_id=col_character(),end_station_id = col_character()))
-       >sample_df <- sample_n(df, 767554, replace=F)
-       >write_csv(sample_df, "sample_dataset.csv")
+ bikerides <- sample_n(bike_rides, 606149, replace = F)
 
 
 **4. Preparing for analysis**
@@ -98,26 +97,30 @@ Before we start analyzing, it is necessary to make sure data is clean, free of e
 	- Day of the week
  - These columns provide additional opportunities to aggregate the data.
 
-		>df$date <- as.Date(df$started_at) df$year <- format(as.Date(df$date), "%Y") 
-		>df$month <- format(as.Date(df$date), "%m") 
-		>df$day <- format(as.Date(df$date), "%d")
-		>df <- df %>% 
+		>bikerides$date <- as.Date(bikerides$started_at)
+ 
+		>bikerides$year <- format(as.Date(bikerides$date), "%Y")
+ 
+		>bikerides$month <- format(as.Date(bikerides$date), "%m")
+		>bikerides$day <- format(as.Date(bikerides$date), "%d")
+
+		>bikerides <- bikerides %>% 
 		>  mutate(ride_length = ended_at - started_at) %>%   
-		>  mutate(day_of_week = weekdays(as.Date(df$started_at)))
+		>  mutate(day_of_week = weekdays(as.Date(bikerides$started_at)))
 
 **5. Check data for errors**: A quick sorting and filtering shows that in 1931 rows, there is a negative difference between two time periods (started_at and ended_at) which logically isn’t possible.
 	Removed the rows where trip duration is negative.
 
-	>df <- df %>%   
-		filter(ride_length > 0)
+	>bikerides <- bikerides %>%
+  		filter(ride_length > 0)
+
 
 **6. Clean column names and checked for duplicate records in rows.**
 
-    >df <- df %>%    
-	    clean_names() %>%    
-	    unique()
-    # Export cleaned df to a new csv 
-    write_csv(df,"2020-2021_divvy-tripdata_cleaned.csv")
+    >bikerides <- bikerides %>%
+  	clean_names() %>%
+  	unique()
+
 
 ## PHASE 4: Analyzing Data
 Performed data aggregation using R Programming.
