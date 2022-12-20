@@ -148,4 +148,4 @@ Here are my top 3 recommendations based on above key findings:
 	- Stations: Streeter Dr & Grand Ave, Lake Shore Dr & Monroe St, Millennium Park
 
 
-***Thanks for reading and Happy Analyzing!*** :smiley: :bar_chart:
+***Thank you for reading and Happy Analyzing!*** :smiley: :bar_chart:
